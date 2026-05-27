@@ -2,7 +2,7 @@ import { SmoothScroll } from "@/components/cinematic/SmoothScroll";
 import { Cursor } from "@/components/cinematic/Cursor";
 import { Atmosphere } from "@/components/cinematic/Atmosphere";
 import { Navbar } from "@/components/cinematic/Navbar";
-import { PersistentProduct } from "@/components/cinematic/PersistentProduct";
+import { PersistentDish } from "@/components/cinematic/PersistentDish";
 import { Hero } from "@/components/cinematic/Hero";
 import { Story } from "@/components/cinematic/Story";
 import { Menu } from "@/components/cinematic/Menu";
@@ -19,7 +19,7 @@ const Index = () => {
       <Cursor />
       <Atmosphere />
       <Navbar />
-      <PersistentProduct />
+      <PersistentDish />
       <Hero />
       <Story />
       <Menu />

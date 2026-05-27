@@ -8,35 +8,56 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Cinematic luxury café — dark by default */
+    --background: 24 14% 5%;
+    --foreground: 36 30% 92%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 24 14% 7%;
+    --card-foreground: 36 30% 92%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 24 14% 6%;
+    --popover-foreground: 36 30% 92%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Copper primary */
+    --primary: 22 65% 55%;
+    --primary-foreground: 24 14% 5%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Warm cream secondary */
+    --secondary: 36 35% 88%;
+    --secondary-foreground: 24 14% 8%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 24 10% 12%;
+    --muted-foreground: 36 12% 62%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 28 70% 48%;
+    --accent-foreground: 36 30% 95%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 70% 45%;
+    --destructive-foreground: 36 30% 95%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 30 18% 18%;
+    --input: 30 18% 18%;
+    --ring: 22 65% 55%;
 
     --radius: 0.5rem;
+
+    /* Brand tokens */
+    --copper: 22 70% 55%;
+    --copper-glow: 30 90% 62%;
+    --bronze: 28 45% 38%;
+    --cream: 36 40% 90%;
+    --ink: 24 18% 4%;
+
+    --gradient-warm: radial-gradient(ellipse at center, hsl(var(--copper-glow) / 0.35), transparent 60%);
+    --gradient-bronze: linear-gradient(135deg, hsl(var(--copper)) 0%, hsl(var(--bronze)) 100%);
+    --gradient-vignette: radial-gradient(ellipse at center, transparent 40%, hsl(var(--ink) / 0.85) 100%);
+    --gradient-section: linear-gradient(180deg, transparent 0%, hsl(var(--ink) / 0.6) 50%, transparent 100%);
+
+    --shadow-cinematic: 0 40px 80px -20px hsl(var(--ink) / 0.9), 0 0 120px hsl(var(--copper) / 0.15);
+    --shadow-glow: 0 0 60px hsl(var(--copper-glow) / 0.5), 0 0 120px hsl(var(--copper) / 0.25);
+    --shadow-product: 0 60px 100px -20px hsl(var(--ink) / 0.95), 0 0 200px hsl(var(--copper-glow) / 0.3);
+
+    --ease-cinematic: cubic-bezier(0.22, 1, 0.36, 1);
 
     --sidebar-background: 0 0% 98%;
 
@@ -54,44 +75,6 @@ All colors MUST be HSL.
 
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
-
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
 }
 
 @layer base {
@@ -100,6 +83,69 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+    overscroll-behavior: none;
+    cursor: none;
+  }
+
+  html {
+    background: hsl(var(--background));
+  }
+
+  .font-serif-display {
+    font-family: 'Cormorant Garamond', 'Playfair Display', serif;
+    font-weight: 300;
+    letter-spacing: -0.02em;
+  }
+}
+
+@layer utilities {
+  .grain::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.06;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='0.6'/></svg>");
+  }
+  .vignette::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: var(--gradient-vignette);
+  }
+  .text-balance { text-wrap: balance; }
+  .text-pretty { text-wrap: pretty; }
+
+  @keyframes float-slow {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-12px) rotate(0.5deg); }
+  }
+  .animate-float-slow { animation: float-slow 7s ease-in-out infinite; }
+
+  @keyframes pulse-glow {
+    0%, 100% { box-shadow: 0 0 40px hsl(var(--copper-glow) / 0.4), 0 0 80px hsl(var(--copper) / 0.2); }
+    50% { box-shadow: 0 0 80px hsl(var(--copper-glow) / 0.7), 0 0 160px hsl(var(--copper) / 0.4); }
+  }
+  .animate-pulse-glow { animation: pulse-glow 3s ease-in-out infinite; }
+
+  @keyframes drift {
+    0% { transform: translate(0, 0); }
+    50% { transform: translate(20px, -30px); }
+    100% { transform: translate(0, 0); }
+  }
+  .animate-drift { animation: drift 18s ease-in-out infinite; }
+}
+
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: swap;
+  src: local('Cormorant Garamond');
+}
   }
 }

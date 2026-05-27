@@ -1,16 +1,16 @@
 import { Reveal } from "./Reveal";
 
 const quotes = [
-  { q: "It felt less like a café and more like a confession.", a: "Vogue Living" },
-  { q: "Every cup is staged like a film still — and tastes like one too.", a: "Monocle" },
-  { q: "The most beautiful thirty minutes of my week.", a: "Eliza R., regular" },
+  { q: "It felt less like a café and more like a screening room with a kitchen.", a: "Vogue Living" },
+  { q: "Every plate is staged like a film still — and tastes like one too.", a: "Monocle" },
+  { q: "The chocolate cake alone is worth the reservation.", a: "Eliza R., regular" },
 ];
 
 export const Voices = () => (
   <section id="voices" className="relative py-[20vh]">
     <div className="mx-auto max-w-6xl px-6 md:px-12">
       <Reveal>
-        <p className="text-xs uppercase tracking-[0.4em] text-copper/80">Chapter Five</p>
+        <p className="text-xs uppercase tracking-[0.4em] text-copper/80">Voices · 11</p>
       </Reveal>
       <Reveal delay={0.15}>
         <h2 className="mt-6 font-serif text-[clamp(2.5rem,6vw,5.5rem)] leading-[1] text-cream">

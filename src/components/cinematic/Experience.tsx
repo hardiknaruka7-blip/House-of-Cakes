@@ -2,10 +2,10 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 
 const beats = [
-  { k: "01", t: "Single Origin", d: "Highland Yirgacheffe, hand-picked at altitude." },
-  { k: "02", t: "Slow Roast", d: "Thirty minutes over volcanic ember." },
-  { k: "03", t: "Hand Poured", d: "Ninety-four degrees. Six grams. One breath." },
-  { k: "04", t: "Served in Copper", d: "Heat held. Aroma cradled. Time slowed." },
+  { k: "01", t: "Sourced",  d: "Heritage grain, farm dairy, single-origin chocolate." },
+  { k: "02", t: "Slow Fire", d: "Wood-burning oven held at 480°C, day and night." },
+  { k: "03", t: "Hand Plated", d: "Every dish composed by one pair of hands, never two." },
+  { k: "04", t: "Carried in Silence", d: "Walked to the table under amber light. Set down without a word." },
 ];
 
 export const Experience = () => {
@@ -17,7 +17,7 @@ export const Experience = () => {
     <section ref={ref} id="experience" className="relative py-[20vh]">
       <div className="mx-auto max-w-7xl px-6 md:px-12">
         <div className="mb-24 max-w-2xl">
-          <p className="text-xs uppercase tracking-[0.4em] text-copper/80">Chapter Four</p>
+          <p className="text-xs uppercase tracking-[0.4em] text-copper/80">Interactive Highlight · 10</p>
           <h2 className="mt-6 font-serif text-[clamp(2.5rem,6vw,5.5rem)] leading-[1] text-cream">
             Four <em className="text-copper">acts.</em>
             <br /> One ritual.

@@ -1,8 +1,8 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { Reveal } from "./Reveal";
-import amb1 from "@/assets/ambience-1.jpg";
-import amb2 from "@/assets/ambience-2.jpg";
+import amb1 from "@/assets/ambience-cake.jpg";
+import amb2 from "@/assets/ambience-1.jpg";
 
 export const Ambience = () => {
   const ref = useRef<HTMLElement>(null);
@@ -26,17 +26,17 @@ export const Ambience = () => {
         <div className="absolute inset-0 flex items-center">
           <div className="mx-auto max-w-7xl px-6 md:px-12">
             <Reveal>
-              <p className="text-xs uppercase tracking-[0.4em] text-copper/90">Chapter Three</p>
+              <p className="text-xs uppercase tracking-[0.4em] text-copper/90">Ambience · 09</p>
             </Reveal>
             <Reveal delay={0.2}>
               <h2 className="mt-6 max-w-2xl font-serif text-[clamp(2.8rem,7vw,6.5rem)] leading-[0.95] text-cream text-balance">
-                A room <em className="text-copper">lit only</em> by what's warm.
+                A room lit only <em className="text-copper">by what's warm.</em>
               </h2>
             </Reveal>
             <Reveal delay={0.5}>
               <p className="mt-8 max-w-md text-base font-light leading-relaxed text-cream/70">
-                Tungsten, copper, candlelight. We dim the world until
-                only the cup remains.
+                Tungsten, marble, candlelight. We dim the world until
+                only the plate remains.
               </p>
             </Reveal>
           </div>

@@ -13,20 +13,21 @@ export const Hero = () => {
         <div className="md:col-span-7">
           <Reveal delay={0.1}>
             <p className="mb-6 text-xs uppercase tracking-[0.4em] text-copper/90">
-              — A Cinematic Café Ritual
+              — House of Cakes · Est. 2014
             </p>
           </Reveal>
           <Reveal delay={0.25}>
             <h1 className="font-serif text-[clamp(3.2rem,9vw,8.5rem)] leading-[0.95] text-cream text-balance">
-              Brewed in
+              Plated in
               <br />
               <span className="italic text-copper">low light.</span>
             </h1>
           </Reveal>
           <Reveal delay={0.55}>
             <p className="mt-8 max-w-md text-base font-light leading-relaxed text-cream/70">
-              A slow ceremony of copper, smoke, and crema —
-              served only after sundown, only by hand.
+              A slow ceremony of butter, smoke, and chocolate.
+              Sandwiches, pizzas, pastas, ramen — and a cake finale,
+              served only by hand.
             </p>
           </Reveal>
           <Reveal delay={0.8}>
@@ -38,12 +39,19 @@ export const Hero = () => {
                 <span className="relative z-10">Reserve a table</span>
               </a>
               <a
-                href="#story"
+                href="#menu"
                 className="group flex items-center gap-3 text-xs uppercase tracking-[0.3em] text-cream/80 transition-colors hover:text-copper"
               >
                 <span className="h-px w-10 bg-copper transition-all duration-500 group-hover:w-16" />
-                Discover the craft
+                See the menu
               </a>
+            </div>
+          </Reveal>
+          <Reveal delay={1.0}>
+            <div className="mt-16 grid max-w-md grid-cols-3 gap-6 text-[10px] uppercase tracking-[0.3em] text-cream/45">
+              <div><span className="block text-copper/80">01 ·</span> Slow fire</div>
+              <div><span className="block text-copper/80">02 ·</span> Hand plated</div>
+              <div><span className="block text-copper/80">03 ·</span> After dusk</div>
             </div>
           </Reveal>
         </div>

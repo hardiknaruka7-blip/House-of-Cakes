@@ -6,19 +6,15 @@ export const Reserve = () => (
       <div className="absolute inset-0 bg-gradient-vignette" />
     </div>
     <div className="mx-auto max-w-3xl px-6 md:px-12">
-      {/* Luxury container with soft ambient RGB edge glow */}
+      {/* Luxury container with ambient RGB halo + animated multi-color border */}
       <div className="relative">
-        {/* Ambient RGB halo — soft, diffused, slow */}
+        {/* Outer diffused RGB halo */}
         <div
           aria-hidden
-          className="rgb-ambient pointer-events-none absolute -inset-10 -z-10 rounded-[2rem] opacity-60"
-        />
-        <div
-          aria-hidden
-          className="pointer-events-none absolute -inset-1 -z-10 rounded-[1.6rem] bg-gradient-to-br from-copper/40 via-transparent to-copper-glow/30 opacity-70 blur-xl"
+          className="rgb-ambient pointer-events-none absolute -inset-16 -z-10 rounded-[3rem] opacity-80"
         />
 
-        <div className="relative overflow-hidden rounded-[1.5rem] border border-cream/10 bg-ink/70 px-8 py-20 text-center backdrop-blur-xl md:px-16 md:py-28">
+        <div className="rgb-border relative overflow-hidden rounded-[1.75rem] bg-ink/80 px-8 py-20 text-center backdrop-blur-xl md:px-16 md:py-28">
           {/* warm interior glow */}
           <div className="pointer-events-none absolute left-1/2 top-1/2 h-[60vh] w-[60vh] -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-warm blur-3xl opacity-70" />
 

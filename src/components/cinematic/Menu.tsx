@@ -238,17 +238,15 @@ function MenuItem({ item, idx }: { item: Item; idx: number }) {
 function SceneBlock({ s }: { s: Scene }) {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
-  const titleY = useTransform(scrollYProgress, [0, 1], [80, -80]);
-  const overlayY = useTransform(scrollYProgress, [0, 1], [200, -200]);
-  const overlayOpacity = useTransform(scrollYProgress, [0, 0.4, 0.7, 1], [0, 0.08, 0.08, 0]);
-  const metaY = useTransform(scrollYProgress, [0, 1], [120, -120]);
+  const overlayY = useTransform(scrollYProgress, [0, 1], [60, -60]);
+  const overlayOpacity = useTransform(scrollYProgress, [0, 0.4, 0.7, 1], [0, 0.05, 0.05, 0]);
 
   const right = s.align === "right";
   const heroes = s.items.filter((i) => i.hero);
   const rest = s.items.filter((i) => !i.hero);
 
   return (
-    <div ref={ref} className="relative min-h-[110vh] py-[14vh]">
+    <div ref={ref} className="relative py-[10vh] md:py-[14vh]">
       {/* tone wash */}
       <div
         className={`pointer-events-none absolute inset-0 -z-10 bg-gradient-to-b ${s.tone} via-transparent to-transparent`}
@@ -258,7 +256,7 @@ function SceneBlock({ s }: { s: Scene }) {
         <motion.div
           style={{ y: overlayY, opacity: overlayOpacity }}
           aria-hidden
-          className={`pointer-events-none absolute inset-x-0 top-[20%] z-0 select-none font-serif text-[clamp(10rem,28vw,28rem)] leading-none text-copper/40 ${
+          className={`pointer-events-none absolute inset-x-0 top-[25%] z-0 select-none font-serif text-[clamp(8rem,20vw,20rem)] leading-none text-copper/30 ${
             right ? "text-left pl-[2vw]" : "text-right pr-[2vw]"
           }`}
         >
@@ -267,22 +265,19 @@ function SceneBlock({ s }: { s: Scene }) {
       )}
 
       <div
-        className={`relative z-10 mx-auto grid max-w-7xl grid-cols-12 gap-x-6 gap-y-12 px-6 md:px-12 ${
+        className={`relative z-10 mx-auto grid max-w-7xl grid-cols-12 gap-x-8 gap-y-10 px-6 md:px-12 ${
           right ? "md:text-right" : ""
         }`}
       >
         {/* HEADER COLUMN */}
-        <motion.div
-          style={{ y: titleY }}
-          className={`col-span-12 md:col-span-7 ${right ? "md:col-start-6" : ""}`}
-        >
+        <div className={`col-span-12 md:col-span-7 ${right ? "md:col-start-6" : ""}`}>
           <Reveal>
             <p className="text-[10px] uppercase tracking-[0.45em] text-copper/80">
               {s.chapter} · {s.k}
             </p>
           </Reveal>
           <Reveal delay={0.12}>
-            <h3 className="mt-8 font-serif text-[clamp(2.6rem,7.5vw,7rem)] leading-[0.92] text-cream text-balance">
+            <h3 className="mt-6 font-serif text-[clamp(2.2rem,5.5vw,4.75rem)] leading-[0.95] text-cream text-balance">
               {s.name.split(" ").map((w, i) => {
                 const isEm = s.emphasis.toLowerCase().includes(w.toLowerCase().replace(/[^a-z]/g, ""));
                 return isEm ? (
@@ -295,26 +290,25 @@ function SceneBlock({ s }: { s: Scene }) {
               })}
             </h3>
           </Reveal>
-          <Reveal delay={0.35}>
+          <Reveal delay={0.25}>
             <p
-              className={`mt-8 max-w-md text-base font-light leading-relaxed text-cream/65 ${
+              className={`mt-6 max-w-md text-[15px] font-light leading-relaxed text-cream/65 ${
                 right ? "md:ml-auto" : ""
               }`}
             >
               {s.copy}
             </p>
           </Reveal>
-          <motion.div
-            style={{ y: metaY }}
-            className={`mt-10 flex items-center gap-6 text-[10px] uppercase tracking-[0.4em] text-cream/45 ${
+          <div
+            className={`mt-8 flex flex-wrap items-center gap-6 text-[10px] uppercase tracking-[0.4em] text-cream/45 ${
               right ? "md:justify-end" : ""
             }`}
           >
             <span className="text-copper/80">{s.tag}</span>
             <span className="h-px w-12 bg-copper/40" />
             <span>{s.note}</span>
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
 
         {/* reserve focal column for persistent dish */}
         <div
@@ -326,12 +320,12 @@ function SceneBlock({ s }: { s: Scene }) {
         <div
           className={`col-span-12 ${
             right ? "md:col-span-7 md:col-start-1" : "md:col-span-7 md:col-start-6"
-          } md:mt-[6vh]`}
+          } md:mt-6`}
         >
           {heroes.length > 0 && (
-            <div className="mb-8 text-left">
+            <div className="mb-6 text-left">
               <Reveal>
-                <p className="mb-4 text-[10px] uppercase tracking-[0.45em] text-copper/60">
+                <p className="mb-3 text-[10px] uppercase tracking-[0.45em] text-copper/60">
                   Visual Focus · Signature
                 </p>
               </Reveal>
@@ -341,9 +335,9 @@ function SceneBlock({ s }: { s: Scene }) {
             </div>
           )}
           {rest.length > 0 && (
-            <div className="mt-10 text-left">
+            <div className="mt-8 text-left">
               <Reveal>
-                <p className="mb-4 text-[10px] uppercase tracking-[0.45em] text-cream/35">
+                <p className="mb-3 text-[10px] uppercase tracking-[0.45em] text-cream/35">
                   The Full Chapter
                 </p>
               </Reveal>

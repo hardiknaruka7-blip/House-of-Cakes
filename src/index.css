@@ -137,6 +137,26 @@ All colors MUST be HSL.
     100% { transform: translate(0, 0); }
   }
   .animate-drift { animation: drift 18s ease-in-out infinite; }
+
+  /* Premium ambient RGB glow — soft, slow, diffused */
+  @keyframes rgb-orbit {
+    0%   { background-position: 0% 50%; }
+    50%  { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  .rgb-ambient {
+    background: linear-gradient(
+      120deg,
+      hsl(22 70% 55% / 0.55),
+      hsl(280 60% 55% / 0.35),
+      hsl(200 70% 55% / 0.4),
+      hsl(340 65% 55% / 0.4),
+      hsl(22 70% 55% / 0.55)
+    );
+    background-size: 300% 300%;
+    animation: rgb-orbit 14s ease-in-out infinite;
+    filter: blur(60px);
+  }
 }
 
 @font-face {

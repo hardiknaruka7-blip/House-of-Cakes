@@ -35,6 +35,18 @@ export const PersistentDish = () => {
   const aRef = useRef<HTMLImageElement>(null);
   const bRef = useRef<HTMLImageElement>(null);
   const [current, setCurrent] = useState({ a: dishes[0].src, b: dishes[0].src, layer: 0 });
+  const [hidden, setHidden] = useState(false);
+
+  useEffect(() => {
+    const menuEl = document.getElementById("menu");
+    if (!menuEl) return;
+    const io = new IntersectionObserver(
+      ([entry]) => setHidden(entry.isIntersecting),
+      { threshold: 0, rootMargin: "-20% 0px -20% 0px" },
+    );
+    io.observe(menuEl);
+    return () => io.disconnect();
+  }, []);
 
   useEffect(() => {
     const onMove = (e: MouseEvent) => {
@@ -104,7 +116,10 @@ export const PersistentDish = () => {
   }, []);
 
   return (
-    <div className="pointer-events-none fixed inset-0 z-30 hidden items-center justify-end pr-[6vw] md:flex">
+    <div
+      className="pointer-events-none fixed inset-0 z-30 hidden items-center justify-end pr-[6vw] transition-opacity duration-700 md:flex"
+      style={{ opacity: hidden ? 0 : 1 }}
+    >
       <div ref={wrap} className="will-change-transform">
         <div className="relative animate-float-slow">
           <div

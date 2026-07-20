@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const links = [
   { id: "hero", label: "House" },
@@ -44,19 +45,29 @@ export const Navbar = () => {
         <ul className="hidden gap-10 md:flex">
           {links.slice(1, -1).map((l) => (
             <li key={l.id}>
-              <a
-                href={`#${l.id}`}
-                className={`group relative text-xs uppercase tracking-[0.25em] transition-colors ${
-                  active === l.id ? "text-copper" : "text-cream/70 hover:text-cream"
-                }`}
-              >
-                {l.label}
-                <span
-                  className={`absolute -bottom-1 left-0 h-px bg-copper transition-all duration-500 ${
-                    active === l.id ? "w-full" : "w-0 group-hover:w-full"
+              {l.id === "menu" ? (
+                <Link
+                  to="/menu"
+                  className="group relative text-xs uppercase tracking-[0.25em] text-cream/70 transition-colors hover:text-cream"
+                >
+                  {l.label}
+                  <span className="absolute -bottom-1 left-0 h-px w-0 bg-copper transition-all duration-500 group-hover:w-full" />
+                </Link>
+              ) : (
+                <a
+                  href={`#${l.id}`}
+                  className={`group relative text-xs uppercase tracking-[0.25em] transition-colors ${
+                    active === l.id ? "text-copper" : "text-cream/70 hover:text-cream"
                   }`}
-                />
-              </a>
+                >
+                  {l.label}
+                  <span
+                    className={`absolute -bottom-1 left-0 h-px bg-copper transition-all duration-500 ${
+                      active === l.id ? "w-full" : "w-0 group-hover:w-full"
+                    }`}
+                  />
+                </a>
+              )}
             </li>
           ))}
         </ul>

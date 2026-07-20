@@ -102,7 +102,7 @@ export const PersistentDish = () => {
         lastSrc = targetSrc;
         crossfade = 0;
       }
-      crossfade = Math.min(1, crossfade + 0.04);
+      crossfade = Math.min(1, crossfade + 0.012);
 
       const rX = mouse.current.y * -6;
       const rY = mouse.current.x * 10;
@@ -136,8 +136,8 @@ export const PersistentDish = () => {
       <div ref={wrap} className="will-change-transform">
         <div className="relative animate-float-slow">
           <div
-            className="absolute inset-0 -z-10 bg-gradient-warm blur-3xl"
-            style={{ transform: "scale(1.6)" }}
+            className="absolute inset-0 -z-10 bg-gradient-warm blur-3xl opacity-70"
+            style={{ transform: "scale(1.15)" }}
           />
           <div ref={tiltRef} className="relative h-[32vh] w-[32vh] max-h-[30vw] max-w-[30vw] will-change-transform">
             <img

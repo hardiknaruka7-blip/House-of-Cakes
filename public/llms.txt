@@ -1,0 +1,8 @@
+# House of Cakes
+
+> An artisan café in Paris where every dish is plated like a film still — sandwiches, burgers, pizzas, pasta, East Asian plates and a chocolate finale.
+
+## Pages
+
+- [Home](/): The cinematic brand story, ambience, testimonials and table reservations.
+- [Menu](/menu): Forty-six signature dishes with prices, grouped into chapters.

@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import { menuCategories } from "@/data/menu";
 
 const MenuPage = () => {
   const [active, setActive] = useState(menuCategories[0].k);
 
   useEffect(() => {
-    document.title = "Menu · House of Cakes";
     const observers: IntersectionObserver[] = [];
     menuCategories.forEach((c) => {
       const el = document.getElementById(`cat-${c.k}`);
@@ -22,6 +22,15 @@ const MenuPage = () => {
   }, []);
 
   return (
+    <>
+    <Helmet>
+      <title>Menu — House of Cakes</title>
+      <meta name="description" content="Forty-six signature dishes: sandwiches, burgers, pizzas, pasta, East Asian plates and a chocolate finale, at House of Cakes in Paris." />
+      <link rel="canonical" href="https://houseofcakes.lovable.app/menu" />
+      <meta property="og:title" content="Menu — House of Cakes" />
+      <meta property="og:description" content="Forty-six signature dishes, plated slow and served warm." />
+      <meta property="og:url" content="https://houseofcakes.lovable.app/menu" />
+    </Helmet>
     <main className="min-h-screen bg-background text-cream">
       {/* top bar */}
       <header className="sticky top-0 z-40 border-b border-cream/10 bg-ink/70 backdrop-blur-xl">
@@ -127,6 +136,7 @@ const MenuPage = () => {
         House of Cakes · Crafted Slow
       </footer>
     </main>
+    </>
   );
 };
 

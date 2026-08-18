@@ -1,4 +1,5 @@
 import { SmoothScroll } from "@/components/cinematic/SmoothScroll";
+import { Helmet } from "react-helmet-async";
 import { Cursor } from "@/components/cinematic/Cursor";
 import { Atmosphere } from "@/components/cinematic/Atmosphere";
 import { Navbar } from "@/components/cinematic/Navbar";
@@ -14,6 +15,10 @@ import { Footer } from "@/components/cinematic/Footer";
 
 const Index = () => {
   return (
+    <>
+    <Helmet>
+      <link rel="canonical" href="https://houseofcakes.lovable.app/" />
+    </Helmet>
     <main className="relative min-h-screen overflow-x-hidden bg-background text-foreground">
       <SmoothScroll />
       <Cursor />
@@ -29,6 +34,7 @@ const Index = () => {
       <Reserve />
       <Footer />
     </main>
+    </>
   );
 };
 

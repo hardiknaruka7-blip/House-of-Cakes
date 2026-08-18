@@ -6,7 +6,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- TODO: Set the document title to the name of your application -->
     <title>House of Cakes — A Cinematic Dining Universe</title>
     <meta name="description" content="House of Cakes — an artisan café where every dish is plated like a film still. Sandwiches, pizzas, pasta, and a chocolate finale, after sundown." />
     <meta name="author" content="House of Cakes" />
@@ -14,11 +13,37 @@
     <meta property="og:title" content="House of Cakes — A Cinematic Dining Universe" />
     <meta property="og:description" content="An artisan café where every dish is plated like a film still." />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+    <meta property="og:url" content="https://houseofcakes.lovable.app/" />
 
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@Lovable" />
-    <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+    <meta name="twitter:title" content="House of Cakes — A Cinematic Dining Universe" />
+    <meta name="twitter:description" content="An artisan café where every dish is plated like a film still." />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Restaurant",
+        "name": "House of Cakes",
+        "servesCuisine": ["Café", "Bakery", "Continental"],
+        "url": "https://houseofcakes.lovable.app/",
+        "hasMenu": "https://houseofcakes.lovable.app/menu",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "12 Rue du Cacao",
+          "postalCode": "75004",
+          "addressLocality": "Paris",
+          "addressCountry": "FR"
+        },
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+            "opens": "18:00",
+            "closes": "23:00"
+          }
+        ]
+      }
+    </script>
   </head>
 
   <body>
